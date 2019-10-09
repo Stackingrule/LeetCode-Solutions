@@ -4,18 +4,26 @@ public:
     stack<int> stackValue;
     stack<int> stackMin;
     MinStack() {
+        while(!stackValue.empty())
+            stackMin.pop();
 
+        while(!stackMin.empty())
+            stackMin.pop();
     }
 
     void push(int x) {
         stackValue.push(x);
-        if (stackMin.empty() || stackMin.top() >= x)
+        if(stackMin.empty()) {
             stackMin.push(x);
+        }
+        else stackMin.push(min(stackMin.top(), x));
     }
 
     void pop() {
-        if (stackMin.top() == stackValue.top()) stackMin.pop();
+        int value = stackValue.top();
         stackValue.pop();
+        if(value == stackMin.top())
+            stackMin.pop();
     }
 
     int top() {
