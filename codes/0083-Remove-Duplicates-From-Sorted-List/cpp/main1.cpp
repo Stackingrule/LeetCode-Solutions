@@ -34,8 +34,8 @@ public:
 
 inline void printList(ListNode* head) {
 	ListNode *cur = head;
-	while(cur) {
-		cout << head->val << " ";
+	while(cur != NULL) {
+		cout << cur->val << " ";
 		cur = cur->next;
 	}
 	cout << endl;
@@ -64,12 +64,12 @@ int main() {
 	a7.next = &a8;
 	a8.next = &a9;
 
-	cout << "åŽŸæ¥çš„é“¾è¡¨ ï¼š" << endl;
+	cout << "Ô­À´µÄÁ´±í £º" << endl;
 	printList(&a1);
 
 	Solution solve;
 
-	cout << "ä¿®æ”¹åŽçš„é“¾è¡¨ï¼š" << endl;
+	cout << "ÐÞ¸ÄºóµÄÁ´±í£º" << endl;
 
 	ListNode *newHead = solve.deleteDuplicates(&a1);
 
