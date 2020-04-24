@@ -5,7 +5,7 @@ public:
         for (int i = 0; i < n; ++i) {
         	for (j = 0; j < n; ++j) {
         		if (i == j) continue;
-        		if (checkSub(strs[i], strsj)) break;
+        		if (checkSub(strs[i], strs[j])) break;
         	}
         	if (j == n) {
         		res = max(res, strs[i].size());
