@@ -17,7 +17,7 @@ public:
     	int avg = len / k, ext = len % k;
     	for (int i = 0; i < k && root; ++i) {
     		res[i] = root;
-    		for (int j = 1; j < avg + (i < ext); ++j) {
+    		for (int j = 1; j < avg + (i < ext ? 1 : 0); ++j) {
     			root = root->next;
     		}
     		ListNode* t = root->next;
