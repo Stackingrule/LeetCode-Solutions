@@ -19,7 +19,7 @@ public:
 
     void helper(TreeNode* node, int &sum) {
     	if (!node) return;
-    	helper(node->right, node);
+    	helper(node->right, sum);
     	node->val += sum;
     	sum = node->val;
     	helper(node->left, sum);
