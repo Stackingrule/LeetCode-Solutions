@@ -12,6 +12,6 @@ public:
         		stack.pop();
         	}
         }
-        return true;
+        return stack.empty();
     }
 };
