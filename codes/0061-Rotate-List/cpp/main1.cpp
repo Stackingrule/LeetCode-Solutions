@@ -29,6 +29,6 @@ public:
         fast->next = head;
         fast = slow->next;
         slow->next = nullptr;
-        return false;
+        return fast;
     }
 };
