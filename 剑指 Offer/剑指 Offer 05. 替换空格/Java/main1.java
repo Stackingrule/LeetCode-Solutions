@@ -1,17 +1,17 @@
 class Solution {
-public:
-    string replaceSpace(string s) {
-    	string res = "";
-    	for (auto c : s) {
+    public String replaceSpace(String s) {
+    	StringBuilder res = new StringBuilder();
+        char[] str = s.toCharArray();
+    	for (char c : str) {
     		if (c == ' ') {
-    			res.push_back('%');
-    			res.push_back('2');
-    			res.push_back('0');
+    			res.append('%');
+    			res.append('2');
+    			res.append('0');
     		}
     		else {
-    			res.push_back(c);
+    			res.append(c);
     		}
     	}
-    	return res;
+    	return res.toString();
     }
-};
+}
