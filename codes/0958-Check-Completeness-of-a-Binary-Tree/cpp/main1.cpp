@@ -15,7 +15,7 @@ public:
         queue<TreeNode*> q;
         q.push(root);
         while (q.front()) {
-        	TreeNode* cur = q.peek(); q.pop();
+        	TreeNode* cur = q.front(); q.pop();
         	q.push(cur->left);
         	q.push(cur->right);
         }
