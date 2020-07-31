@@ -4,20 +4,15 @@ public:
     vector<vector<int>> subsets(vector<int> &nums)
     {
         vector<vector<int>> res(1);
-        size_t total = 1 << nums.size();
-        for (size_t i = 0; i < total; ++i) {
-            vector<int> vec;
-            int num = i, idx = 0;
-            while (num)
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            int size = res.size();
+            for (int j = 0; j < size; ++j)
             {
-                if (num & 1)
-                {
-                    vec.push_back(nums[idx]);
-                }
-                num >>= 1;
-                ++idx;
+                res.push_back(res[j]);
+                res.back().push_back(nums[i]);
             }
-            res.push_back(vec);
         }
         return res;
     }
