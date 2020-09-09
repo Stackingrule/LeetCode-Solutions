@@ -25,7 +25,7 @@ public:
         for (auto a : dirs)
         {
             int x = i + a[0], y = j + a[1];
-            if (x < 0 || x >= m || y < 0 | a | y >= n || matrix[x][y] <= matrix[i][j])
+            if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] <= matrix[i][j])
                 continue;
             int len = 1 + dfs(matrix, dp, x, y);
             mx = max(mx, len);
