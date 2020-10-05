@@ -1,6 +1,6 @@
 class Solution
 {
-public
+public:
     int bitwiseComplement(int N)
     {
         int sum = 0;
@@ -12,4 +12,4 @@ public
         }
         return sum - N;
     }
-}
+};
