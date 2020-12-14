@@ -1,46 +1,48 @@
-/**
-若一个图满足以下三个要求，就是一个有效的二叉树：
-1.有且仅有一个结点的入度为0；
-2.所有结点的入度最大为1；
-3.所有结点的出度最大为2(题目本身就满足)。
- * 
- */
 class Solution
 {
 public:
-    bool validateBinaryTreeNodes(int n, vector<int> &leftChild, vector<int> &rightChild)
+    int dfs(int x, const vector<int> &leftChild, const vector<int> &rightChild)
     {
-        vector<int> in(n, 0);
+        if (x == -1)
+            return 0;
 
-        for (int i = 0; i < n; ++i)
+        return dfs(leftChild[x], leftChild, rightChild) + dfs(rightChild[x], leftChild, rightChild) + 1;
+    }
+
+    bool validateBinaryTreeNodes(int n,
+                                 vector<int> &leftChild, vector<int> &rightChild)
+    {
+
+        vector<int> indegree(n, 0);
+        int m = 0;
+
+        for (int i = 0; i < n; i++)
         {
-            if (leftChild[i] != -1)
+            if (leftChild[i] > -1)
             {
-                in[leftChild[i]]++;
+                m++;
+                indegree[leftChild[i]]++;
             }
-            if (rightChild[i] != -1)
+
+            if (rightChild[i] > -1)
             {
-                in[rightChild[i]]++;
+                m++;
+                indegree[rightChild[i]]++;
             }
         }
 
-        int count = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            if (in[i] > 1)
-            {
-                return false;
-            }
-            if (in[i] == 0)
-            {
-                ++count;
-            }
-        }
-        if (count != 1)
-        {
+        if (m != n - 1)
             return false;
+
+        int rt = -1;
+        for (int i = 0; i < n; i++)
+        {
+            if (indegree[i] == 0)
+                rt = i;
+            else if (indegree[i] > 1)
+                return false;
         }
 
-        return true;
+        return dfs(rt, leftChild, rightChild) == n;
     }
 };
