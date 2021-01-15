@@ -1,12 +1,15 @@
-public class Solution {
-    public double TrimMean(int[] arr) {
-        Array.Sort(arr);        
-        int len = arr.Length;
+class Solution {
+    public double trimMean(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        int len1 = n/20;
         double sum = 0;
-        for(int i= len/20 ; i<arr.Length-(len/20);i++){
-            sum+=arr[i];
+        double count = (n - 2 * len1);
+        for(int i = len1;i < n - len1;i++){
+            sum += arr[i];
         }
+
+        return sum/count;
         
-        return sum/(len-(len/10));
     }
 }
