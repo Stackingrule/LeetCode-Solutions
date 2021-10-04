@@ -6,7 +6,7 @@ public:
         for (int i = 0; i < grid.size(); ++i) {
             for (int j = 0; j < grid[0].size(); ++j) {
                 if (grid[i][j] == 0) {
-                    val =1;
+                    val = 1;
                     dfs(grid, i, j);
                     ans += val;
                 }
